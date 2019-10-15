@@ -1,5 +1,6 @@
 package com.mtrade.products.web.controller;
 
+import com.mtrade.products.configurations.AppPropertiesConfiguration;
 import com.mtrade.products.dao.ProductDao;
 import com.mtrade.products.model.Product;
 import com.mtrade.products.web.exception.ProductNotFoundException;
@@ -15,15 +16,19 @@ import java.util.Optional;
 public class ProductController {
 
     private ProductDao productDao;
+    private AppPropertiesConfiguration propertiesConfiguration;
 
     @Autowired
-    public ProductController(ProductDao productDao) {
+    public ProductController(ProductDao productDao, AppPropertiesConfiguration propertiesConfiguration) {
         this.productDao = productDao;
+        this.propertiesConfiguration = propertiesConfiguration;
     }
 
     @GetMapping("/products")
     public List<Product> productsList(){
-        return productDao.findAll();
+        List<Product> productLimitedList = productDao.findAll().subList(0,propertiesConfiguration.getLimitDeProduits());
+
+        return productLimitedList;
     }
 
     @GetMapping("/products/{id}")
