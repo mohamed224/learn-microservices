@@ -1,13 +1,13 @@
-package com.mtrade;
+package com.mtrade.products;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class MicroservicePaymentApplication {
+public class MicroserviceProductsApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(MicroservicePaymentApplication.class, args);
+		SpringApplication.run(MicroserviceProductsApplication.class, args);
 	}
 
 }
