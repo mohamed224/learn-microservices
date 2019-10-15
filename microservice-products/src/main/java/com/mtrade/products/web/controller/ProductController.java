@@ -29,7 +29,7 @@ public class ProductController {
     @GetMapping("/products/{id}")
     public Optional<Product> findProductById(@PathVariable int id) {
         Optional<Product> product = productDao.findById(id);
-        if(product.isPresent()) throw new ProductNotFoundException("Product with id : "+id+" do not exist.");
+        if(!product.isPresent()) throw new ProductNotFoundException("Product with id : "+id+" do not exist.");
         return product;
     }
 }
