@@ -1,4 +1,4 @@
-package com.mtrade;
+package com.mtrade.orders.clientui;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -7,7 +7,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
-public class MicroserviceProductsApplicationTests {
+public class ClientuiApplicationTests {
 
 	@Test
 	public void contextLoads() {

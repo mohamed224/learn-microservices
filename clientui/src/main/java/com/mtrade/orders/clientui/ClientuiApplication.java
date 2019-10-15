@@ -1,13 +1,13 @@
-package com.mtrade;
+package com.mtrade.orders.clientui;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class MicroserviceOrdersApplication {
+public class ClientuiApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(MicroserviceOrdersApplication.class, args);
+		SpringApplication.run(ClientuiApplication.class, args);
 	}
 
 }
