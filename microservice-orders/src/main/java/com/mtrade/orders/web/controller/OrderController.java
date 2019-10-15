@@ -1,7 +1,7 @@
 package com.mtrade.orders.web.controller;
 
 import com.mtrade.orders.dao.OrderDao;
-import com.mtrade.orders.model.Order;
+import com.mtrade.orders.model.Orderr;
 import com.mtrade.orders.web.exception.CanNotAddOrderException;
 import com.mtrade.orders.web.exception.OrderNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,11 +9,11 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import javax.swing.text.html.Option;
 import java.util.Optional;
 
 @RestController
 public class OrderController {
+
 
     private OrderDao orderDao;
 
@@ -23,18 +23,24 @@ public class OrderController {
     }
 
     @PostMapping("/orders")
-    public ResponseEntity<Order> addOrder(@RequestBody Order order){
+    public ResponseEntity<Orderr> addOrder(@RequestBody Orderr orderr){
 
-        Order newOrder= orderDao.save(order);
-        if(newOrder==null) throw new CanNotAddOrderException("You can not add this order.");
+        Orderr newOrderr = orderDao.save(orderr);
+        if(newOrderr ==null) throw new CanNotAddOrderException("You can not add this orderr.");
 
-        return new ResponseEntity<>(newOrder, HttpStatus.CREATED);
+        return new ResponseEntity<Orderr>(orderr, HttpStatus.CREATED);
     }
 
     @GetMapping("/orders/{id}")
-    public Optional<Order> findOrderById(@PathVariable int id){
-        Optional<Order> order = orderDao.findById(id);
-        if(!order.isPresent()) throw new OrderNotFoundException("Order with id : "+id+" do not found");
+    public Optional<Orderr> findOrderById(@PathVariable int id){
+        Optional<Orderr> order = orderDao.findById(id);
+        if(!order.isPresent()) throw new OrderNotFoundException("Orderr with id : "+id+" do not found");
         return order;
+    }
+
+    @PutMapping(value = "/orders")
+    public void updateOrder(@RequestBody Orderr orderr) {
+
+        orderDao.save(orderr);
     }
 }

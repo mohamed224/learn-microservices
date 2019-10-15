@@ -8,7 +8,7 @@ import java.util.Date;
 import java.util.Objects;
 
 @Entity
-public class Order implements Serializable {
+public class Orderr implements Serializable {
 
     @Id
     @GeneratedValue
@@ -18,10 +18,10 @@ public class Order implements Serializable {
     private Integer quantity;
     private Boolean paidOrder;
 
-    public Order() {
+    public Orderr() {
     }
 
-    public Order(int id ,Integer productId, Date orderDate, Integer quantity, Boolean paidOrder) {
+    public Orderr(int id , Integer productId, Date orderDate, Integer quantity, Boolean paidOrder) {
         this.id = id;
         this.productId = productId;
         this.orderDate = orderDate;
@@ -72,13 +72,13 @@ public class Order implements Serializable {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof Order)) return false;
-        Order order = (Order) o;
-        return getId() == order.getId() &&
-                Objects.equals(getProductId(), order.getProductId()) &&
-                Objects.equals(getOrderDate(), order.getOrderDate()) &&
-                Objects.equals(getQuantity(), order.getQuantity()) &&
-                Objects.equals(getPaidOrder(), order.getPaidOrder());
+        if (!(o instanceof Orderr)) return false;
+        Orderr orderr = (Orderr) o;
+        return getId() == orderr.getId() &&
+                Objects.equals(getProductId(), orderr.getProductId()) &&
+                Objects.equals(getOrderDate(), orderr.getOrderDate()) &&
+                Objects.equals(getQuantity(), orderr.getQuantity()) &&
+                Objects.equals(getPaidOrder(), orderr.getPaidOrder());
     }
 
     @Override
@@ -88,7 +88,7 @@ public class Order implements Serializable {
 
     @Override
     public String toString() {
-        return "Order{" +
+        return "Orderr{" +
                 "id=" + id +
                 ", productId=" + productId +
                 ", orderDate=" + orderDate +
